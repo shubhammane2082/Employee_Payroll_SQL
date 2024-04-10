@@ -245,3 +245,40 @@ mysql>  select gender,sum(salary) from employee_payroll where gender='Male' grou
 | Male   |       27000 |
 +--------+-------------+
 1 row in set (0.00 sec)
+
+mysql> alter table employee_payroll add employee_phone int(10),add employee_address varchar(100) set default_value 'Mumbai',employee_Department varchar(50)
+not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set default_value 'Mumbai',employee_Department varchar(50) not null' at line 1
+mysql>  alter table employee_payroll add employee_phone int(10),add employee_address varchar(100) set default_value 'Mumbai',employee_Department varchar(50)
+
+    -> not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set default_value 'Mumbai',employee_Department varchar(50)
+not null' at line 1
+mysql> alter table employee_payroll add employee_phone int(12),add employee_address varchar(100) default 'Mmubai',,employee_Department varchar(50) not null;
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',employee_Department varchar(50) not null' at line 1
+mysql>  alter table employee_payroll add employee_phone int(12),add employee_address varchar(100) default 'Mumbai',employee_Department varchar(50) not null;
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'employee_Department varchar(50) not null' at line 1
+mysql> alter table employee_payroll
+    -> add employee_phone int(10),
+    -> add employee_address varchar(100) default 'Pune'
+    -> add employee_department varchar(100) not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add employee_department varchar(100) not null' at line 4
+mysql>  alter table employee_payroll
+    -> add employee_phone int(10),
+    -> add employee_address varchar(100) default 'Pune',
+    -> add employee_department varchar(100) not null;
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+--------+----------------+------------------+---------------------+
+| id | name    | salary | startDate  | gender | employee_phone | employee_address | employee_department |
++----+---------+--------+------------+--------+----------------+------------------+---------------------+
+|  1 | Suraj   |  10000 | 2000-09-20 | Male   |           NULL | Pune             |                     |
+|  2 | Swapnil |  15000 | 2020-10-22 | NULL   |           NULL | Pune             |                     |
+|  3 | sumit   |  17000 | 2023-11-09 | Male   |           NULL | Pune             |                     |
+|  4 | vivek   |  45500 | 2024-10-10 | NULL   |           NULL | Pune             |                     |
++----+---------+--------+------------+--------+----------------+------------------+---------------------+
+4 rows in set (0.00 sec)
