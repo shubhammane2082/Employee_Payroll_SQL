@@ -154,3 +154,33 @@ mysql>  select * from employee_payroll where startDate between Cast('2020-10-09'
 |  3 | sumit   |  17000 | 2023-11-09 |
 +----+---------+--------+------------+
 2 rows in set (0.00 sec)
+
+mysql> alter table employee_payroll add gender varchar(20);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+--------+
+| id | name    | salary | startDate  | gender |
++----+---------+--------+------------+--------+
+|  1 | Suraj   |  10000 | 2000-09-20 | NULL   |
+|  2 | Swapnil |  15000 | 2020-10-22 | NULL   |
+|  3 | sumit   |  17000 | 2023-11-09 | NULL   |
+|  4 | vivek   |  45500 | 2024-10-10 | NULL   |
++----+---------+--------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> update employee_payroll set gender='Male' where name='sumit' or name='suraj';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql>  select * from employee_payroll;
++----+---------+--------+------------+--------+
+| id | name    | salary | startDate  | gender |
++----+---------+--------+------------+--------+
+|  1 | Suraj   |  10000 | 2000-09-20 | Male   |
+|  2 | Swapnil |  15000 | 2020-10-22 | NULL   |
+|  3 | sumit   |  17000 | 2023-11-09 | Male   |
+|  4 | vivek   |  45500 | 2024-10-10 | NULL   |
++----+---------+--------+------------+--------+
+4 rows in set (0.00 sec)
