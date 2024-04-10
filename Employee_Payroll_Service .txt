@@ -63,3 +63,42 @@ mysql> use payroll_service_database;
 Database changed
 mysql> create table employee_payroll(id int auto_increment primary key, name varchar(50), salary double, startDate date);
 Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from employee_payroll;
+Empty set (0.00 sec)
+
+mysql> insert into employee_payroll values (1,"Suraj",10000,'2000-09-20');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee_payroll;
++----+-------+--------+------------+
+| id | name  | salary | startDate  |
++----+-------+--------+------------+
+|  1 | Suraj |  10000 | 2000-09-20 |
++----+-------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql>  insert into employee_payroll values (2,"Swapnil",15000,'2020-10-22');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+
+| id | name    | salary | startDate  |
++----+---------+--------+------------+
+|  1 | Suraj   |  10000 | 2000-09-20 |
+|  2 | Swapnil |  15000 | 2020-10-22 |
++----+---------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql>  insert into employee_payroll values (3,"sumit",17000,'2023-11-09');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  select * from employee_payroll;
++----+---------+--------+------------+
+| id | name    | salary | startDate  |
++----+---------+--------+------------+
+|  1 | Suraj   |  10000 | 2000-09-20 |
+|  2 | Swapnil |  15000 | 2020-10-22 |
+|  3 | sumit   |  17000 | 2023-11-09 |
++----+---------+--------+------------+
+3 rows in set (0.00 sec)
